@@ -1,0 +1,692 @@
+<div class="top-section">
+  <div class="image-row">
+    <a href="https://www.guris.com.tr/" target="_blank">
+      <img src="assets/guris_logo1.png" alt="Guris logo" loading="lazy" class="image-logo">
+    </a>  
+    <h1 class="form-title"> İş Başvuru Formu</h1>
+    <img src="assets/7566.jpg" alt="Guris banner" loading="lazy" class="image-banner">
+  </div>
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div class="middle-container">
+<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+  <h3 style="margin-top: 60px;">Kişisel Bilgiler</h3>
+  <hr class="gradient">
+  <div formGroupName="userDetails">
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="firstName">Adı *</label>
+      <input type="text" id="firstName" formControlName="firstName" aria-required="true" [ngClass]="{'is-invalid': userForm.get('userDetails.firstName')?.invalid && (userForm.get('userDetails.firstName')?.dirty || userForm.get('userDetails.firstName')?.touched)}">
+      <div *ngIf="userForm.get('userDetails.firstName')?.invalid && (userForm.get('userDetails.firstName')?.dirty || userForm.get('userDetails.firstName')?.touched)" class="error">
+        Lütfen isim giriniz
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Soyadı *</label>
+      <input type="text" id="lastName" formControlName="lastName" [ngClass]="{'is-invalid': userForm.get('userDetails.lastName')?.invalid && (userForm.get('userDetails.lastName')?.dirty || userForm.get('userDetails.lastName')?.touched)}">
+      <div *ngIf="userForm.get('userDetails.lastName')?.invalid && (userForm.get('userDetails.lastName')?.dirty || userForm.get('userDetails.lastName')?.touched)" class="error">
+        Lütfen soyisim giriniz
+      </div>
+      </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="birthdate">Doğum Tarihiniz *</label>
+      <input type="date" id="birthdate" formControlName="birthdate" class="small-input" [ngClass]="{'is-invalid': userForm.get('userDetails.birthdate')?.invalid && (userForm.get('userDetails.birthdate')?.dirty || userForm.get('userDetails.birthdate')?.touched)}">
+      <div *ngIf="userForm.get('userDetails.birthdate')?.invalid && (userForm.get('userDetails.birthdate')?.dirty || userForm.get('userDetails.birthdate')?.touched)" class="error">
+        Lütfen doğum tarihinizi giriniz
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="birthplace">Doğum Yeriniz *</label>
+      <select id="birthplace" formControlName="birthplace" [ngClass]="{'is-invalid': userForm.get('userDetails.birthplace')?.invalid && (userForm.get('userDetails.birthplace')?.dirty || userForm.get('userDetails.birthplace')?.touched)}">
+        <option value="" disabled selected>Şehir Seçin</option>
+        <option value="istanbul">İstanbul</option>
+        <option value="ankara">Ankara</option>
+        <option value="izmir">İzmir</option>
+        <option value="Adana">Adana</option>
+        <option value="Adıyaman">Adıyaman</option>
+        <option value="Afyonkarahisar">Afyonkarahisar</option>
+        <option value="Ağrı">Ağrı</option>
+        <option value="Amasya">Amasya</option>
+        <option value="Antalya">Antalya</option>
+        <option value="Artvin">Artvin</option>
+        <option value="Aydın">Aydın</option>
+        <option value="Balıkesir">Balıkesir</option>
+        <option value="Bilecik">Bilecik</option>
+        <option value="Bingöl">Bingöl</option>
+        <option value="Bitlis">Bitlis</option>
+        <option value="Bolu">Bolu</option>
+        <option value="Burdur">Burdur</option>
+        <option value="Bursa">Bursa</option>
+        <option value="Çanakkale">Çanakkale</option>
+        <option value="Çankırı">Çankırı</option>
+        <option value="Çorum">Çorum</option>
+        <option value="Denizli">Denizli</option>
+        <option value="Diyarbakır">Diyarbakır</option>
+        <option value="Edirne">Edirne</option>
+        <option value="Elazığ">Elazığ</option>
+        <option value="Erzincan">Erzincan</option>
+        <option value="Erzurum">Erzurum</option>
+        <option value="Eskişehir">Eskişehir</option>
+        <option value="Gaziantep">Gaziantep</option>
+        <option value="Giresun">Giresun</option>
+        <option value="Gümüşhane">Gümüşhane</option>
+        <option value="Hakkari">Hakkari</option>
+        <option value="Hatay">Hatay</option>
+        <option value="Isparta">Isparta</option>
+        <option value="Mersin">Mersin</option>
+        <option value="Kars">Kars</option>
+        <option value="Kastamonu">Kastamonu</option>
+        <option value="Kayseri">Kayseri</option>
+        <option value="Kırklareli">Kırklareli</option>
+        <option value="Kırşehir">Kırşehir</option>
+        <option value="Kocaeli">Kocaeli</option>
+        <option value="Konya">Konya</option>
+        <option value="Kütahya">Kütahya</option>
+        <option value="Malatya">Malatya</option>
+        <option value="Manisa">Manisa</option>
+        <option value="Kahramanmaraş">Kahramanmaraş</option>
+        <option value="Mardin">Mardin</option>
+        <option value="Muğla">Muğla</option>
+        <option value="Muş">Muş</option>
+        <option value="Nevşehir">Nevşehir</option>
+        <option value="Niğde">Niğde</option>
+        <option value="Ordu">Ordu</option>
+        <option value="Rize">Rize</option>
+        <option value="Sakarya">Sakarya</option>
+        <option value="Samsun">Samsun</option>
+        <option value="Siirt">Siirt</option>
+        <option value="Sinop">Sinop</option>
+        <option value="Sivas">Sivas</option>
+        <option value="Tekirdağ">Tekirdağ</option>
+        <option value="Tokat">Tokat</option>
+        <option value="Trabzon">Trabzon</option>
+        <option value="Tunceli">Tunceli</option>
+        <option value="Şanlıurfa">Şanlıurfa</option>
+        <option value="Uşak">Uşak</option>
+        <option value="Van">Van</option>
+        <option value="Yozgat">Yozgat</option>
+        <option value="Zonguldak">Zonguldak</option>
+        <option value="Aksaray">Aksaray</option>
+        <option value="Bayburt">Bayburt</option>
+        <option value="Karaman">Karaman</option>
+        <option value="Kırıkkale">Kırıkkale</option>
+        <option value="Batman">Batman</option>
+        <option value="Şırnak">Şırnak</option>
+        <option value="Bartın">Bartın</option>
+        <option value="Ardahan">Ardahan</option>
+        <option value="Iğdır">Iğdır</option>
+        <option value="Yalova">Yalova</option>
+        <option value="Karabük">Karabük</option>
+        <option value="Kilis">Kilis</option>
+        <option value="Osmaniye">Osmaniye</option>
+        <option value="Düzce">Düzce</option>
+      </select>
+      <div *ngIf="userForm.get('userDetails.birthplace')?.invalid && (userForm.get('userDetails.birthplace')?.dirty || userForm.get('userDetails.birthplace')?.touched)" class="error">
+        Lütfen doğum yerinizi seçiniz
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="gender">Cinsiyet *</label>
+      <select id="gender" formControlName="gender" [ngClass]="{'is-invalid': userForm.get('userDetails.gender')?.invalid && (userForm.get('userDetails.gender')?.dirty || userForm.get('userDetails.gender')?.touched)}">
+        <option value="" disabled selected>Seçiniz</option>
+        <option value="Kadın">Kadın</option>
+        <option value="Erkek">Erkek</option>
+        <option value="Diğer">Diğer</option>
+      </select>
+      <div *ngIf="userForm.get('userDetails.gender')?.invalid && (userForm.get('userDetails.gender')?.dirty || userForm.get('userDetails.gender')?.touched)" class="error">
+        Lütfen cinsiyetinizi seçiniz
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="marriageStatus">Medeni Durum *</label>
+      <select id="marriageStatus" formControlName="marriageStatus" [ngClass]="{'is-invalid': userForm.get('userDetails.marriageStatus')?.invalid && (userForm.get('userDetails.marriageStatus')?.dirty || userForm.get('userDetails.marriageStatus')?.touched)}">
+        <option value="" disabled selected>Seçiniz</option>
+        <option value="Evli">Evli</option>
+        <option value="Bekar">Bekar</option>
+      </select>
+      <div *ngIf="userForm.get('userDetails.marriageStatus')?.invalid && (userForm.get('userDetails.marriageStatus')?.dirty || userForm.get('userDetails.marriageStatus')?.touched)" class="error">
+        Lütfen medeni durumunuzu seçiniz
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+        <label for="nationality">Uyruk *</label>
+        <div class="switch-container">
+            <input type="radio" id="tc" formControlName="nationality" value="TC" checked>
+            <input type="radio" id="other" formControlName="nationality" value="Diğer">
+            <div class="switch-toggle">
+                <label for="tc" class="switch-option tc-option">T.C.</label>
+                <label for="other" class="switch-option other-option">Diğer</label>
+                <span class="switch-slider"></span>
+            </div>
+        </div>
+        <div *ngIf="userForm.get('userDetails.nationality')?.invalid && (userForm.get('userDetails.nationality')?.dirty || userForm.get('userDetails.nationality')?.touched)" class="error">
+            Lütfen uyruk seçiniz
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="tcNo">Tc Kimlik Numarası</label>
+        <input type="text" id="tcNo" formControlName="tcNo" maxlength="11" 
+               [ngClass]="{'is-invalid': userForm.get('userDetails.tcNo')?.invalid && 
+                           (userForm.get('userDetails.tcNo')?.dirty || userForm.get('userDetails.tcNo')?.touched)}">
+        <div *ngIf="userForm.get('userDetails.tcNo')?.invalid && 
+                    (userForm.get('userDetails.tcNo')?.dirty || userForm.get('userDetails.tcNo')?.touched)" class="error">
+            Lütfen geçerli bir Tc kimlik numarası giriniz
+        </div>
+    </div>
+  </div>
+
+  <div class="form-group reduce-space">
+    <label for="address">Adresiniz *</label>
+    <textarea id="address" formControlName="address" [ngClass]="{'is-invalid': userForm.get('userDetails.address')?.invalid && (userForm.get('userDetails.address')?.dirty || userForm.get('userDetails.address')?.touched)}"></textarea>
+    <div *ngIf="userForm.get('userDetails.address')?.invalid && (userForm.get('userDetails.address')?.dirty || userForm.get('userDetails.address')?.touched)" class="error">
+      Lütfen adresinizi giriniz
+    </div>
+  </div>
+  
+  <div class="form-row reduce-space">
+    <div class="form-group reduce-space">
+      <label for="city">İl *</label>
+      <select id="city" formControlName="city" [ngClass]="{'is-invalid': userForm.get('userDetails.city')?.invalid && (userForm.get('userDetails.city')?.dirty || userForm.get('userDetails.city')?.touched)}">
+        <option value="" disabled selected>Şehir Seçin</option>
+        <option value="İstanbul">İstanbul</option>
+        <option value="Ankara">Ankara</option>
+        <option value="İzmir">İzmir</option>
+        <option value="Adana">Adana</option>
+        <option value="Adıyaman">Adıyaman</option>
+        <option value="Afyonkarahisar">Afyonkarahisar</option>
+        <option value="Ağrı">Ağrı</option>
+        <option value="Amasya">Amasya</option>
+        <option value="Antalya">Antalya</option>
+        <option value="Artvin">Artvin</option>
+        <option value="Aydın">Aydın</option>
+        <option value="Balıkesir">Balıkesir</option>
+        <option value="Bilecik">Bilecik</option>
+        <option value="Bingöl">Bingöl</option>
+        <option value="Bitlis">Bitlis</option>
+        <option value="Bolu">Bolu</option>
+        <option value="Burdur">Burdur</option>
+        <option value="Bursa">Bursa</option>
+        <option value="Çanakkale">Çanakkale</option>
+        <option value="Çankırı">Çankırı</option>
+        <option value="Çorum">Çorum</option>
+        <option value="Denizli">Denizli</option>
+        <option value="Diyarbakır">Diyarbakır</option>
+        <option value="Edirne">Edirne</option>
+        <option value="Elazığ">Elazığ</option>
+        <option value="Erzincan">Erzincan</option>
+        <option value="Erzurum">Erzurum</option>
+        <option value="Eskişehir">Eskişehir</option>
+        <option value="Gaziantep">Gaziantep</option>
+        <option value="Giresun">Giresun</option>
+        <option value="Gümüşhane">Gümüşhane</option>
+        <option value="Hakkari">Hakkari</option>
+        <option value="Hatay">Hatay</option>
+        <option value="Isparta">Isparta</option>
+        <option value="Mersin">Mersin</option>
+        <option value="Kars">Kars</option>
+        <option value="Kastamonu">Kastamonu</option>
+        <option value="Kayseri">Kayseri</option>
+        <option value="Kırklareli">Kırklareli</option>
+        <option value="Kırşehir">Kırşehir</option>
+        <option value="Kocaeli">Kocaeli</option>
+        <option value="Konya">Konya</option>
+        <option value="Kütahya">Kütahya</option>
+        <option value="Malatya">Malatya</option>
+        <option value="Manisa">Manisa</option>
+        <option value="Kahramanmaraş">Kahramanmaraş</option>
+        <option value="Mardin">Mardin</option>
+        <option value="Muğla">Muğla</option>
+        <option value="Muş">Muş</option>
+        <option value="Nevşehir">Nevşehir</option>
+        <option value="Niğde">Niğde</option>
+        <option value="Ordu">Ordu</option>
+        <option value="Rize">Rize</option>
+        <option value="Sakarya">Sakarya</option>
+        <option value="Samsun">Samsun</option>
+        <option value="Siirt">Siirt</option>
+        <option value="Sinop">Sinop</option>
+        <option value="Sivas">Sivas</option>
+        <option value="Tekirdağ">Tekirdağ</option>
+        <option value="Tokat">Tokat</option>
+        <option value="Trabzon">Trabzon</option>
+        <option value="Tunceli">Tunceli</option>
+        <option value="Şanlıurfa">Şanlıurfa</option>
+        <option value="Uşak">Uşak</option>
+        <option value="Van">Van</option>
+        <option value="Yozgat">Yozgat</option>
+        <option value="Zonguldak">Zonguldak</option>
+        <option value="Aksaray">Aksaray</option>
+        <option value="Bayburt">Bayburt</option>
+        <option value="Karaman">Karaman</option>
+        <option value="Kırıkkale">Kırıkkale</option>
+        <option value="Batman">Batman</option>
+        <option value="Şırnak">Şırnak</option>
+        <option value="Bartın">Bartın</option>
+        <option value="Ardahan">Ardahan</option>
+        <option value="Iğdır">Iğdır</option>
+        <option value="Yalova">Yalova</option>
+        <option value="Karabük">Karabük</option>
+        <option value="Kilis">Kilis</option>
+        <option value="Osmaniye">Osmaniye</option>
+        <option value="Düzce">Düzce</option>
+      </select>
+      <div *ngIf="userForm.get('userDetails.city')?.invalid && (userForm.get('userDetails.city')?.dirty || userForm.get('userDetails.city')?.touched)" class="error">
+        Lütfen il seçiniz
+      </div>
+    </div>
+
+    <div class="form-group reduce-space">
+      <label for="district">İlçe *</label>
+      <input type="text" id="district" formControlName="district" placeholder="İlçe giriniz" [ngClass]="{'is-invalid': userForm.get('userDetails.district')?.invalid && (userForm.get('userDetails.district')?.dirty || userForm.get('userDetails.district')?.touched)}">
+      <div *ngIf="userForm.get('userDetails.district')?.invalid && (userForm.get('userDetails.district')?.dirty || userForm.get('userDetails.district')?.touched)" class="error">
+        Lütfen ilçe giriniz
+      </div>
+    </div>
+    <div class="form-group reduce-space">
+      <label for="postal">Posta Kodu *</label>
+      <input type="text" id="postal" formControlName="postal" placeholder="Posta kodu giriniz" maxlength="5" [ngClass]="{'is-invalid': userForm.get('userDetails.postal')?.invalid && (userForm.get('userDetails.postal')?.dirty || userForm.get('userDetails.postal')?.touched)}">
+      <div *ngIf="userForm.get('userDetails.postal')?.invalid && (userForm.get('userDetails.postal')?.dirty || userForm.get('userDetails.postal')?.touched)" class="error">
+        Lütfen geçerli bir posta kodu giriniz
+      </div>
+    </div>
+  
+  </div>
+ <div class=" form-row">
+  <div class="form-group">
+    <label for="phone">Cep Telefonu *</label>
+    <div class="phone-container">
+      <span class="country-code">+90</span>
+      <input type="text" id="phone" formControlName="telNum" maxlength="13" placeholder="(5XX) 123-4567" [ngClass]="{'is-invalid': userForm.get('userDetails.telNum')?.invalid && (userForm.get('userDetails.telNum')?.dirty || userForm.get('userDetails.telNum')?.touched)}">
+    </div>
+      <div *ngIf="userForm.get('userDetails.telNum')?.invalid && (userForm.get('userDetails.telNum')?.dirty || userForm.get('userDetails.telNum')?.touched)" class="error">
+      Lütfen geçerli bir telefon numarası giriniz
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Eposta Adresi *</label>
+    <input type="email" id="email" formControlName="email" [ngClass]="{'is-invalid': userForm.get('userDetails.email')?.invalid && (userForm.get('userDetails.email')?.dirty || userForm.get('userDetails.email')?.touched)}">
+    <div *ngIf="userForm.get('userDetails.email')?.invalid && (userForm.get('userDetails.email')?.dirty || userForm.get('userDetails.email')?.touched)" class="error">
+      Lütfen geçerli bir eposta adresi giriniz
+    </div>
+  </div>
+</div>
+</div>
+
+  <h3 style="margin-top: 60px;">Eğitim Bilgileri</h3>
+  <hr class="gradient">
+  
+  <!-- <div formGroupName="educationDetails"> -->
+  <div class="form-group">
+    <label for="educationLevel">Öğrenim Durumu *</label>
+    <select id="educationLevel" formControlName="educationLevel" [ngClass]="{'is-invalid': userForm.get('educationLevel')?.invalid && (userForm.get('educationLevel')?.dirty || userForm.get('educationLevel')?.touched)}">
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="İlkokul">İlkokul</option>
+      <option value="Ortaokul">Ortaokul</option>
+      <option value="Lise">Lise</option>
+      <option value="Ön-lisans">Ön lisans</option>
+      <option value="Lisans">Lisans</option>
+      <option value="Yüksek-lisans">Yüksek Lisans</option>
+      <option value="Doktora">Doktora</option>
+    </select>
+    <div *ngIf="userForm.get('educationLevel')?.invalid && (userForm.get('educationLevel')?.dirty || userForm.get('educationLevel')?.touched)" class="error">
+      Lütfen öğrenim durumu seçiniz
+    </div>
+  </div>
+
+  <div class="form-group" *ngIf="userForm.get('educationLevel')?.value === 'Lise'">
+    <label for="highschool">Lise *</label>
+    <input type="text" id="highschool" formControlName="highschool" [ngClass]="{'is-invalid': userForm.get('highschool')?.invalid && (userForm.get('highschool')?.dirty || userForm.get('highschool')?.touched)}">
+    <div *ngIf="userForm.get('highschool')?.invalid && (userForm.get('highschool')?.dirty || userForm.get('highschool')?.touched)" class="error">
+      Lütfen lise bilgisi giriniz
+    </div>
+  </div>
+
+  <div *ngIf="userForm.get('educationLevel')?.value === 'Ön-lisans' || userForm.get('educationLevel')?.value === 'Lisans' || userForm.get('educationLevel')?.value === 'Yüksek-lisans' || userForm.get('educationLevel')?.value === 'Doktora'">
+    <div class="form-group">
+      <label for="highschool">Lise *</label>
+      <input type="text" id="highschool" formControlName="highschool" [ngClass]="{'is-invalid': userForm.get('highschool')?.invalid && (userForm.get('highschool')?.dirty || userForm.get('highschool')?.touched)}">
+      <div *ngIf="userForm.get('highschool')?.invalid && (userForm.get('highschool')?.dirty || userForm.get('highschool')?.touched)" class="error">
+        Lütfen lise bilgisi giriniz
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="university">Üniversite *</label>
+      <input type="text" id="university" formControlName="university" [ngClass]="{'is-invalid': userForm.get('university')?.invalid && (userForm.get('university')?.dirty || userForm.get('university')?.touched)}">
+      <div *ngIf="userForm.get('university')?.invalid && (userForm.get('university')?.dirty || userForm.get('university')?.touched)" class="error">
+        Lütfen üniversite bilgisi giriniz
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="program">Bölüm *</label>
+      <input type="text" id="program" formControlName="program" [ngClass]="{'is-invalid': userForm.get('program')?.invalid && (userForm.get('program')?.dirty || userForm.get('program')?.touched)}">   
+      <div *ngIf="userForm.get('program')?.invalid && (userForm.get('program')?.dirty || userForm.get('program')?.touched)" class="error">
+        Lütfen bölüm bilgisi giriniz
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="graduate-date">Mezuniyet Tarihi</label>
+    <input type="date" id="graduate-date" formControlName="graduateDate">
+  </div>
+
+  <div class="form-group">
+    <label for="gpa">Diploma Notu</label>
+    <input type="number" id="gpa" formControlName="gpa" min="0" step="0.01">
+  </div>
+
+  <h3 style="margin-top: 60px;">İş Deneyimi</h3>
+  <hr class="gradient">
+
+  <div id="jobs-container" formArrayName="jobExperiences">
+    <div *ngFor="let job of jobExperiences.controls; let i = index" [formGroupName]="i">
+      <div class="accordion-tab" (click)="toggleTab('jobExperiences', i)">
+        <div class="tab-content">
+          <span>{{ (job.get('company')!.value ? (i + 1) + '. ' + job.get('company')!.value : (i + 1) + '. İş Deneyimi') }}</span>
+          <div class="arrow-box">
+            <i class="arrow" [ngClass]="tabStates['jobExperiences'][i] ? 'up' : 'down'"></i>
+          </div>
+        </div>
+        <button type="button" class="btn btn-default btn-sm delete-btn" (click)="removeJob(i); $event.stopPropagation()">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+      </div>
+      <div class="accordion-entry box" *ngIf="tabStates['jobExperiences'][i]">
+        <div class="form-group">
+          <label for="company">Çalışılan Kurum</label>
+          <input type="text" formControlName="company">
+        </div>
+        <div class="form-group">
+          <label for="position">Çalışılan Pozisyon</label>
+          <input type="text" formControlName="position">
+        </div>
+        <div class="form-group">
+          <label for="start-date">Başlangıç Tarihi</label>
+          <input type="date" formControlName="startDate">
+        </div>
+        <div class="form-group">
+          <label for="end-date">Bitiş Tarihi</label>
+          <input type="date" formControlName="endDate">
+        </div>
+        <div class="form-group">
+          <label for="responsibilities">Görev ve Sorumluluklar</label>
+          <textarea formControlName="responsibilities"></textarea>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary add-accordion-btn" (click)="addJob()">İş Deneyimi Ekle</button>
+  </div>
+
+  <h3 style="margin-top: 60px;">Referanslar</h3>
+  <hr class="gradient">
+
+  <div id="references-container" formArrayName="references">
+    <div *ngFor="let reference of references.controls; let i = index" [formGroupName]="i">
+      <div class="accordion-tab" (click)="toggleTab('references', i)">
+        <div class="tab-content">
+          <span>{{ (reference.get('referenceName')!.value ? (i + 1) + '. ' + reference.get('referenceName')!.value : (i + 1) + '. Referans') }}</span>
+          <div class="arrow-box">
+            <i class="arrow" [ngClass]="tabStates['references'][i] ? 'up' : 'down'"></i>
+          </div>
+        </div>
+        <button type="button" class="btn btn-default btn-sm delete-btn" (click)="removeReference(i); $event.stopPropagation()">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+      </div>
+      <div class="accordion-entry box" *ngIf="tabStates['references'][i]">
+        <div class="form-group">
+          <label for="reference-name">Referansın Adı Soyadı</label>
+          <input type="text" formControlName="referenceName" >
+        </div>
+        <div class="form-group">
+          <label for="reference-company">Referansın Çalıştığı Kurum</label>
+          <input type="text" formControlName="referenceCompany">
+        </div>
+        <div class="form-group">
+          <label for="reference-phone">Referansın Telefon Numarası</label>
+          <input type="tel" formControlName="referencePhone" placeholder="(5XX) 123-4567" maxlength="15" >
+        </div>
+        <div class="form-group">
+          <label for="reference-email">Referansın Eposta Adresi</label>
+          <input type="email" formControlName="referenceEmail">
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary add-accordion-btn" (click)="addReference()">Referans Ekle</button>
+  </div>
+
+  <h3 style="margin-top: 60px;">Yetenekler ve Sertifikalar</h3>
+  <hr class="gradient">
+<!-- <div formGroupName="skillDetails"> -->
+  <div class="form-group">
+    <label for="skills">Teknik ve Kişisel Yetenekler</label>
+    <input type="text" id="skills" formControlName="skills">
+  </div>
+  <div id="certificates-container" formArrayName="skillCertificates">
+    <div *ngFor="let certificate of skillCertificates.controls; let i = index" [formGroupName]="i">
+      <div class="accordion-tab" (click)="toggleTab('skillCertificates', i)">
+        <div class="tab-content">
+          <span>{{ (certificate.get('certificateName')!.value ? (i + 1) + '. ' + certificate.get('certificateName')!.value : (i + 1) + '. Sertifika') }}</span>
+          <div class="arrow-box">
+            <i class="arrow" [ngClass]="tabStates['skillCertificates'][i] ? 'up' : 'down'"></i>
+          </div>
+        </div>
+        <button type="button" class="btn btn-default btn-sm delete-btn" (click)="removeCertificate(i); $event.stopPropagation()">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+      </div>
+      <div class="accordion-entry box" *ngIf="tabStates['skillCertificates'][i]">
+        <div class="form-group">
+          <label for="certificate-name">Sertifika Adı</label>
+          <input type="text" formControlName="certificateName" [ngClass]="{'is-invalid': certificate.get('certificateName')?.invalid && (certificate.get('certificateName')?.dirty || certificate.get('certificateName')?.touched)}">
+        </div>
+        <div class="form-group">
+          <label for="certificate-file">Sertifika Dosyası</label>
+          <input type="file" (change)="onCertificateFileSelected($event, i)" accept="application/pdf">
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary add-accordion-btn" (click)="addCertificate()">Sertifika Ekle</button>
+  </div>
+
+  <h3 style="margin-top: 60px;">Askerlik Durumu</h3>
+  <hr class="gradient">
+<!-- <div formGroupName="militaryDetails"> -->
+  <div class="form-group">
+    <label for="militaryStatus">Askerlik Durumu *</label>
+    <select id="militaryStatus" formControlName="militaryStatus" [ngClass]="{'is-invalid': userForm.get('militaryStatus')?.invalid && (userForm.get('militaryStatus')?.dirty || userForm.get('militaryStatus')?.touched)}">
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="Yapıldı">Yapıldı</option>
+      <option value="Muaf">Muaf</option>
+      <option value="Tecilli">Tecilli</option>
+    </select>
+    <div *ngIf="userForm.get('militaryStatus')?.invalid && (userForm.get('militaryStatus')?.dirty || userForm.get('militaryStatus')?.touched)" class="error">
+      Lütfen askerlik durumu seçiniz
+    </div>
+  </div>
+
+  <div id="military-date-container" [style.display]="userForm.get('militaryStatus')?.value === 'Yapıldı' ? 'block' : 'none'">
+    <div class="form-group">
+      <label for="military-date">Bitiş Tarihi</label>
+      <input type="date" formControlName="militaryDate">
+    </div>
+  </div>
+
+
+  <h3 style="margin-top: 60px;">Sağlık Durumu</h3>
+  <hr class="gradient">
+<!-- <div formGroupName="healthDetails"> -->
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="healthStat">Sağlık Durumu *</label>
+      <select id="healthStat" formControlName="healthStat" (change)="onHealthStatusChange($event)" 
+              [ngClass]="{'is-invalid': userForm.get('healthStat')?.invalid && (userForm.get('healthStat')?.dirty || userForm.get('healthStat')?.touched)}">
+        <option value="" disabled selected>Seçiniz</option>
+        <option value="Engelli">Engelli</option>
+        <option value="Sağlıklı">Sağlıklı</option>
+      </select>
+      <div *ngIf="userForm.get('healthStat')?.invalid && (userForm.get('healthStat')?.dirty || userForm.get('healthStat')?.touched)" class="error">
+        Lütfen sağlık durumu giriniz
+      </div>
+    </div>
+  
+    <div class="form-group" *ngIf="isDisabled">
+      <label for="disability">Engellilik Durumu *</label>
+      <input type="text" id="disability" formControlName="disability" [ngClass]="{'is-invalid': userForm.get('disability')?.invalid && (userForm.get('disability')?.dirty || userForm.get('disability')?.touched)}" >
+      <div *ngIf="userForm.get('disability')?.invalid && (userForm.get('disability')?.dirty || userForm.get('disability')?.touched)" class="error">
+        Lütfen engellilik durumu giriniz
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="form-group">
+    <label for="health">Genel Sağlık Bilgileri</label>
+    <input type="text" id="health" formControlName="health">
+  </div>
+
+
+  <h3 style="margin-top: 60px;">Adli Sicil Kaydı</h3>
+  <hr class="gradient">
+
+
+  <!-- <div formGroupName="criminalDetails"> -->
+    <div class="form-group">
+      <label for="criminal">Adli Sicil Kaydı *</label>
+      <select id="criminal" formControlName="criminal" [ngClass]="{'is-invalid': userForm.get('criminal')?.invalid && (userForm.get('criminal')?.dirty || userForm.get('criminal')?.touched)}">
+        <option value="" disabled selected>Seçiniz</option>
+        <option value="Var">Var</option>
+        <option value="Yok">Yok</option>
+      </select>
+      <div *ngIf="userForm.get('criminal')?.invalid && (userForm.get('criminal')?.dirty || userForm.get('criminal')?.touched)" class="error">
+        Lütfen adli sicil kaydı durumunu seçiniz
+      </div>
+    </div>
+  
+    <div id="criminal-details"[style.display]="userForm.get('criminal')?.value === 'Var' ? 'block' : 'none'">
+      <div class="form-group">
+        <label for="criminal-date">Tarihi</label>
+        <input type="date" id="criminal-date" formControlName="criminalDate" [ngClass]="{'is-invalid': userForm.get('criminalDate')?.invalid && (userForm.get('criminalDate')?.dirty || userForm.get('criminalDate')?.touched)}">
+      </div>
+  
+      <div class="form-group">
+        <label for="criminal-reason">Sebebi</label>
+        <input type="text" id="criminal-reason" formControlName="criminalReason" [ngClass]="{'is-invalid': userForm.get('criminalReason')?.invalid && (userForm.get('criminalReason')?.dirty || userForm.get('criminalReason')?.touched)}">
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="crim_rec">E-devlet Adli Sicil Kaydı</label>
+      <input type="file" id="crim_rec" (change)="onCriminalRecordFileSelected($event)" accept="application/pdf">
+    </div>
+
+  <h3 style="margin-top: 60px;">Diğer Bilgiler</h3>
+  <hr class="gradient">
+
+<!-- <div formGroupName="otherDetails"> -->
+  <h5>Hobiler</h5>
+  <div class="form-group">
+    <input type="text" formControlName="hobbies" [ngClass]="{'is-invalid': userForm.get('hobbies')?.invalid && (userForm.get('hobbies')?.dirty || userForm.get('hobbies')?.touched)}">
+  </div>
+
+  <h5>
+    Üyelikler
+    <button type="button" class="btn btn-primary add-btn" (click)="addMembership()">
+      <i class="fa fa-plus"></i>
+    </button>
+    <button type="button" class="btn btn-default btn-sm delete-btn" (click)="removeLastMembership()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </button>
+  </h5>
+  <div *ngIf="memberships.length > 0" id="memberships-container" formArrayName="memberships" class="group-container">
+    <div *ngFor="let membership of memberships.controls; let i = index" [formGroupName]="i" class="form-group membership-group">
+      <div class="form-row">
+        <label class="number-label">{{i + 1}}.</label>
+        <input type="text" formControlName="membershipName" style="display:inline-block; width:auto;" [ngClass]="{'is-invalid': membership.get('membershipName')?.invalid && (membership.get('membershipName')?.dirty || membership.get('membershipName')?.touched)}">
+      </div>
+    </div>
+  </div>
+  
+  <h5>
+    Yabancı Diller
+    <button type="button" class="btn btn-primary add-btn" (click)="addLanguage()">
+      <i class="fa fa-plus"></i>
+    </button>
+    <button type="button" class="btn btn-default btn-sm delete-btn" (click)="removeLastLanguage()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </button>
+  </h5>
+  <div *ngIf="languages.length > 0" id="languages-container" formArrayName="languages" class="group-container">
+    <div *ngFor="let language of languages.controls; let i = index" [formGroupName]="i" class="form-group language-group">
+      <div class="form-row">
+        <label class="number-label">{{i + 1}}.</label>
+        <input type="text" formControlName="languageName" placeholder="Dil" style="display:inline-block; width:auto;" [ngClass]="{'is-invalid': language.get('languageName')?.invalid && (language.get('languageName')?.dirty || language.get('languageName')?.touched)}">
+        <select formControlName="proficiency" style="display:inline-block; width:auto;" required [ngClass]="{'is-invalid': language.get('proficiency')?.invalid && (language.get('proficiency')?.dirty || language.get('proficiency')?.touched)}">
+          <option value="" disabled selected>Seçiniz</option>
+          <option value="Çok iyi">Çok İyi</option>
+          <option value="İyi">İyi</option>
+          <option value="Orta">Orta</option>
+          <option value="Başlangıç">Başlangıç</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 60px;">Ek Dosya</h3>
+  <hr class="gradient">
+
+  <div class="form-group file-area">
+    <label for="cvFile">CV</label>
+    <input type="file" id="cvFile" (change)="onCvFileSelected($event)" accept="application/pdf" [ngClass]="{'is-invalid': userForm.get('cvFile')?.invalid && (userForm.get('cvFile')?.dirty || userForm.get('cvFile')?.touched)}">
+    <div *ngIf="userForm.get('cvFile')?.invalid && (userForm.get('cvFile')?.dirty || userForm.get('cvFile')?.touched)" class="error">
+      Lütfen CV dosyasını yükleyiniz
+    </div>
+</div>
+
+  <div class="form-group policy-group">
+    <input type="checkbox" id="policy" formControlName="policy" [ngClass]="{'is-invalid': userForm.get('policy')?.invalid && (userForm.get('policy')?.dirty || userForm.get('policy')?.touched)}">
+    <label for="policy" class="policy-label">
+      Kişisel verilerimin işlenmesine, saklanmasına, korunmasına, güncellenmesine ve yasal olarak bu bilgileri talep etme yetkisine sahip kurumlarla paylaşılmasına rızamla onay veriyorum.
+    </label>
+    <div *ngIf="userForm.get('policy')?.invalid && (userForm.get('policy')?.dirty || userForm.get('policy')?.touched)" class="error">
+      Lütfen bu alanı onaylayınız
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-submit">Gönder</button>
+  
+</form>
+</div>
+</body>
+<button id="scrollTopBtn" class="scroll-top-btn" (click)="scrollToTop()">
+  <i class='fas fa-caret-square-up'></i>
+</button>
+
+
+<div class="bottom-section">
+  <div class="image-row">
+    <img src="assets/guris_bottom.png" alt="Guris banner" loading="lazy" class="image-banner-bot">
+    <img src="assets/YATAY.png" alt="Guris logo" loading="lazy" class="image-logo-bot">
+  </div>
+</div>
